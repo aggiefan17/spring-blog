@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Roll Dice</title>
-</head>
+<head th:replace="fragments/header :: header" />
 <body>
-
+    <nav th:replace="fragments/navbar :: navbar" />
     <h1>Guess a number!</h1>
 
     <div>
-        <a btn="btn btn-primary" href="/roll-dice/1">1</a>
-        <a btn="btn btn-primary" href="/roll-dice/2">2</a>
-        <a btn="btn btn-primary" href="/roll-dice/3">3</a>
-        <a btn="btn btn-primary" href="/roll-dice/4">4</a>
-        <a btn="btn btn-primary" href="/roll-dice/5">5</a>
-        <a btn="btn btn-primary" href="/roll-dice/6">6</a>
+        <a class="btn btn-primary" href="/roll-dice/1">1</a>
+        <a class="btn btn-primary" href="/roll-dice/2">2</a>
+        <a class="btn btn-primary" href="/roll-dice/3">3</a>
+        <a class="btn btn-primary" href="/roll-dice/4">4</a>
+        <a class="btn btn-primary" href="/roll-dice/5">5</a>
+        <a class="btn btn-primary" href="/roll-dice/6">6</a>
     </div>
 
-
+    <footer th:replace="fragments/footer :: footer" />
+    <script th:replace="fragments/js :: js" />
 </body>
 </html>
