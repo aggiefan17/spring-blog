@@ -1,7 +1,7 @@
 package com.codeup.springblog;
 
+import com.codeup.springblog.Daos.PostRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,15 @@ import java.util.List;
 @Service
 public class PostService {
 
+    private PostRepository postDao;
+
+    public PostService(PostRepository postDao) {
+        this.postDao = postDao;
+    }
+
     private List<Post> posts;
+
+
 
     public PostService() {
         this.posts = new ArrayList<>();
@@ -17,20 +25,21 @@ public class PostService {
     }
 
     private void createPosts() {
-//        save(new Post(title: "Title A", body: "Body A"));
-//        save(new Post(title: "Title A", body: "Body A"));
-//        save(new Post(title: "Title A", body: "Body A"));
+//        save(new Post("Title A", "Body A"));
+//        save(new Post("Title B", "Body B"));
+//        save(new Post("Title C", "Body C"));
     }
 
-//    private void save(Post post) {
-//        post.setId(posts.size() + 1);
-//    }
 
-    public List<Post> findAll() {
-        return posts;
+    public Iterable<Post> findAll() {
+        return postDao.findAll();
     }
 
-    public String save(@ModelAttribute Post post) {
-        return "posts/create";
+    public Post save(Post post) {
+        return postDao.save(post);
     }
+
+    public void update(Post post) {
+    }
+
 }
