@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="fragments/header :: header" />
 <body>
+<nav th:replace="fragments/navbar :: navbar" />
 <form action="/posts/create" method="post" th:object="${post}">
     Title:
     <input th:field="*{title}" />
@@ -12,8 +10,11 @@
     Body:
     <input th:field="*{body}" />
     <br />
-    <input type="submit" />
+    <input type="submit" value="Create Post" />
 </form>
+
+<footer th:replace="fragments/footer :: footer" />
+<script th:replace="fragments/js :: js" />
 
 </body>
 </html>

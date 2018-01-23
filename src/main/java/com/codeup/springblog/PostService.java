@@ -20,8 +20,8 @@ public class PostService {
         return postDao.findOne(id);
     }
 
-    public Post save(Post post) {
-        return postDao.save(post);
+    public void save(Post post) {
+        postDao.save(post);
     }
 
     public void update(Post post) {

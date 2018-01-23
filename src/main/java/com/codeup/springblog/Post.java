@@ -1,13 +1,14 @@
 package com.codeup.springblog;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="post")
 public class Post {
     @Id @GeneratedValue
     private Long id;
+
+    @Column(columnDefinition = "TEXT")
     private String title;
     private String body;
 
