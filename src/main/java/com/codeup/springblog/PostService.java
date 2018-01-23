@@ -3,9 +3,6 @@ package com.codeup.springblog;
 import com.codeup.springblog.Daos.PostRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class PostService {
 
@@ -15,24 +12,12 @@ public class PostService {
         this.postDao = postDao;
     }
 
-    private List<Post> posts;
-
-
-
-    public PostService() {
-        this.posts = new ArrayList<>();
-        createPosts();
-    }
-
-    private void createPosts() {
-//        save(new Post("Title A", "Body A"));
-//        save(new Post("Title B", "Body B"));
-//        save(new Post("Title C", "Body C"));
-    }
-
-
     public Iterable<Post> findAll() {
         return postDao.findAll();
+    }
+
+    public Post findOne(Long id) {
+        return postDao.findOne(id);
     }
 
     public Post save(Post post) {
@@ -40,6 +25,11 @@ public class PostService {
     }
 
     public void update(Post post) {
+        postDao.save(post);
+    }
+
+    public void delete(Post post) {
+        postDao.delete(post);
     }
 
 }

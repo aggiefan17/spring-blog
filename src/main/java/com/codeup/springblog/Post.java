@@ -1,14 +1,16 @@
 package com.codeup.springblog;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Post {
-    @Id
+    @Id @GeneratedValue
+    private Long id;
     private String title;
     private String body;
-    private Long id;
+
 
     public String getTitle() {
         return title;
