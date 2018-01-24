@@ -11,17 +11,11 @@ public class PostService {
 
     private UsersRepository usersDao;
 
-    public PostService(PostRepository postDao) {
+    public PostService(PostRepository postDao, UsersRepository usersDao) {
         this.postDao = postDao;
-    }
-
-    public PostService(UsersRepository usersDao) {
         this.usersDao = usersDao;
     }
 
-    public PostService(){
-
-    }
 
     public Iterable<Post> findAll() {
         return postDao.findAll();

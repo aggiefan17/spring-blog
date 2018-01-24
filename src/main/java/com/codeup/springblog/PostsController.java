@@ -18,12 +18,14 @@ public class PostsController {
     public String index(Model viewAndModel) {
         Iterable<Post> posts = postService.findAll();
         viewAndModel.addAttribute("posts", posts);
-        return "posts index page";
+        return "posts/index";
     }
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
-    public String viewPost(@PathVariable String id) {
-        return id + ": view an individual post";
+    public String viewPost(@PathVariable Long id, Model viewAndModel) {
+        Post post = postService.findOne(id);
+        viewAndModel.addAttribute("post", post);
+        return "posts/show";
     }
 
     @RequestMapping("/posts/create")
