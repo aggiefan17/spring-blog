@@ -4,13 +4,18 @@
 <body>
 <nav th:replace="fragments/navbar :: navbar" />
 <form action="/posts/delete" method="post" th:object="${post}">
-    Title:
-    <input th:field="*{title}" />
+    <div class="form-group">
+        Title:
+        <input th:field="*{title}" />
+    </div>
     <br />
-    Body:
-    <input th:field="*{body}" />
-    <br />
-    <input type="submit" value="Delete Post" />
+    <div class="form-group">
+        Body:
+        <input th:field="*{body}" />
+    </div>
+        <br />
+        <input type="submit" value="Delete Post" />
+
 </form>
 
 <footer th:replace="fragments/footer :: footer" />
