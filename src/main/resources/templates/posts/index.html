@@ -6,8 +6,13 @@
 <nav th:replace="fragments/navbar :: navbar" />
 
 <div th:each="post : ${posts}">
-    <h1 th:text="${post.title}"></h1>
-    <p th:text="${post.body}"></p>
+    <div class="card mb-3 ml-5 text-white bg-info" style="width: 18rem;">
+        <div class="card-body">
+            <h1 th:text="${post.title}"></h1>
+            <p th:text="${post.body}"></p>
+            <!--<p th:text="${post.user.email}"></p>-->
+        </div>
+    </div>
 </div>
 
 <footer th:replace="fragments/footer :: footer" />

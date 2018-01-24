@@ -4,20 +4,23 @@
 <body>
 <div class="container">
 <nav th:replace="fragments/navbar :: navbar" />
-<form action="/posts/create" method="post" th:object="${post}">
-    <div class="form-group">
-        Title:
-        <input th:field="*{title}" />
+<div class="card mb-3 ml-5 text-white bg-info" style="width: 18rem;">
+    <div class="card-body">
+        <form action="/posts/create" method="post" th:object="${post}">
+            <div class="form-group">
+             Title:
+                <input th:field="*{title}" />
+            </div>
+            <br />
+            <div class="form-group">
+             Body:
+                <input th:field="*{body}" />
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="Create Post" />
+        </form>
     </div>
-    <br />
-    <div class="form-group">
-        Body:
-        <input th:field="*{body}" />
-    </div>
-    <br />
-    <input type="submit" class="btn btn-primary" value="Create Post" />
-</form>
-
+</div>
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/js :: js" />
 </div>

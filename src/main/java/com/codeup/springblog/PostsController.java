@@ -1,18 +1,20 @@
 package com.codeup.springblog;
 
+import com.codeup.springblog.Daos.UsersRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostsController {
+
     private final PostService postService;
+    private final UsersRepository usersRepository;
 
-    public PostsController(PostService postService) {
+    public PostsController(PostService postService, UsersRepository usersRepository) {
         this.postService = postService;
+        this.usersRepository = usersRepository;
     }
-
-
 
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
     public String index(Model viewAndModel) {
@@ -36,6 +38,8 @@ public class PostsController {
 
     @PostMapping("/posts/create")
     private String createPost(@ModelAttribute Post post) {
+        User user = usersRepository.findOne(1L);
+        post.setUser(usersRepository.findOne(1L));
         postService.save(post);
         return "redirect:/posts";
     }

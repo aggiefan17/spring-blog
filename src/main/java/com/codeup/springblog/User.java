@@ -10,12 +10,27 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(unique = true, nullable = false)
     private String userName;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false)
     private String password;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
+
+    public User(String userName, String password, String email) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public User() {
+    }
 
     public long getId() {
         return id;
@@ -48,4 +63,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

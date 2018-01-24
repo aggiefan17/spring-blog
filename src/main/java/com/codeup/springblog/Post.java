@@ -13,9 +13,7 @@ public class Post {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
-
 
     public String getTitle() {
         return title;
@@ -39,5 +37,13 @@ public class Post {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
