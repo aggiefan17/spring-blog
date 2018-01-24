@@ -1,6 +1,7 @@
 package com.codeup.springblog;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -13,8 +14,8 @@ public class User {
     private String email;
     private String password;
 
-    @OneToOne
-    private Post post;
+    @OneToMany
+    private List<Post> posts;
 
     public long getId() {
         return id;

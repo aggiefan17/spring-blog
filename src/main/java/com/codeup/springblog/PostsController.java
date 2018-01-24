@@ -12,8 +12,9 @@ public class PostsController {
         this.postService = postService;
     }
 
+
+
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
-    @ResponseBody
     public String index(Model viewAndModel) {
         Iterable<Post> posts = postService.findAll();
         viewAndModel.addAttribute("posts", posts);
@@ -21,7 +22,6 @@ public class PostsController {
     }
 
     @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public String viewPost(@PathVariable String id) {
         return id + ": view an individual post";
     }
