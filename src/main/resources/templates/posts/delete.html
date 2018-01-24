@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: header" />
 <body>
+<div class="container">
 <nav th:replace="fragments/navbar :: navbar" />
 <form action="/posts/delete" method="post" th:object="${post}">
     <div class="form-group">
@@ -14,12 +15,12 @@
         <input th:field="*{body}" />
     </div>
         <br />
-        <input type="submit" value="Delete Post" />
+        <input type="submit" class="btn btn-primary" value="Delete Post" />
 
 </form>
 
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/js :: js" />
-
+</div>
 </body>
 </html>

@@ -2,19 +2,24 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: header" />
 <body>
+<div class="container">
 <nav th:replace="fragments/navbar :: navbar" />
 <form action="/posts/create" method="post" th:object="${post}">
-    Title:
-    <input th:field="*{title}" />
+    <div class="form-group">
+        Title:
+        <input th:field="*{title}" />
+    </div>
     <br />
-    Body:
-    <input th:field="*{body}" />
+    <div class="form-group">
+        Body:
+        <input th:field="*{body}" />
+    </div>
     <br />
-    <input type="submit" value="Create Post" />
+    <input type="submit" class="btn btn-primary" value="Create Post" />
 </form>
 
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/js :: js" />
-
+</div>
 </body>
 </html>

@@ -2,20 +2,25 @@
 <html lang="en" xmlns:th="http://www.thyneleaf.org">
 <head th:replace="fragments/header :: header" />
 <body>
+<div class="container">
 <nav th:replace="fragments/navbar :: navbar" />
 <form action="/posts/edit" method="post" th:object="${post}">
     <input type="hidden" th:field="*{id}" />
-    Title:
-    <input th:field="*{title}" />
+    <div class="form-group">
+        Title:
+        <input th:field="*{title}" />
+    </div>
     <br />
-    Body:
-    <input th:field="*{body}" />
+    <div class="form-group">
+        Body:
+        <input th:field="*{body}" />
+    </div>
     <br />
-    <input type="submit" value="Edit" />
+    <input type="submit" class="btn btn-primary" value="Edit" />
 </form>
 
 <footer th:replace="fragments/footer :: footer" />
 <script th:replace="fragments/js :: js" />
-
+</div>
 </body>
 </html>
